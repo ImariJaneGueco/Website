@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet App</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#f2f2f2;
+}
+
+/* APP */
+.app{
+  width:100%;
+  min-height:100vh;
+  padding:20px;
+}
+
+.title{
+  text-align:center;
+  color:#ff8c2b;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+/* SEARCH */
+.search-box{
+  display:flex;
+  align-items:center;
+  background:#eee;
+  border-radius:20px;
+  padding:10px 15px;
+  margin-bottom:20px;
+}
+
+.search-box input{
+  border:none;
+  background:transparent;
+  flex:1;
+  outline:none;
+}
+
+/* HIDE RADIO */
+input[type="radio"]{
+  display:none;
+}
+
+/* BANNER */
+.banner{
+  background:#5f7fb3;
+  color:#fff;
+  padding:20px;
+  border-radius:20px;
+  margin-bottom:20px;
+}
+
+/* CATEGORY */
+.categories{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+
+.categories label{
+  flex:1;
+  min-width:70px;
+  text-align:center;
+  padding:10px;
+  border-radius:15px;
+  border:2px solid #ff8c2b;
+  font-size:12px;
+  cursor:pointer;
+}
+
+/* ACTIVE CATEGORY */
+#food:checked ~ .categories label[for="food"],
+#toy:checked ~ .categories label[for="toy"],
+#potion:checked ~ .categories label[for="potion"],
+#finery:checked ~ .categories label[for="finery"],
+#tools:checked ~ .categories label[for="tools"]{
+  background:#ff8c2b;
+  color:#fff;
+  border:none;
+}
+
+/* SECTION TITLE */
+.section-title{
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+/* PRODUCTS GRID */
+.section{
+  display:none;
+}
+
+.products{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr); /* mas malaki cards */
+  gap:15px;
+  padding-bottom:90px;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* 🔥 MAS MAHABANG IMAGE */
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:15px;
+  margin-bottom:8px;
+}
+
+.card h4{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.price{
+  color:#ff8c2b;
+  font-weight:bold;
+}
+
+/* SHOW ONLY ACTIVE */
+#food:checked ~ .food,
+#toy:checked ~ .toy,
+#potion:checked ~ .potion,
+#finery:checked ~ .finery,
+#tools:checked ~ .tools{
+  display:block;
+}
+
+/* NAV */
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#ff8c2b;
+  display:flex;
+  justify-content:space-around;
+  padding:15px 0;
+}
+
+.nav div{
+  color:#fff;
+  font-size:18px;
+}
+
+.home{
+  background:#fff;
+  color:#ff8c2b;
+  padding:8px;
+  border-radius:10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="app">
+
+  <div class="title">BSIT 1A</div>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search">
+    🛒
+  </div>
+
+  <div class="banner">
+    <h3>Vet Assistance</h3>
+    <small>Request Service</small>
+  </div>
+
+  <!-- RADIO -->
+  <input type="radio" name="cat" id="food" checked>
+  <input type="radio" name="cat" id="toy">
+  <input type="radio" name="cat" id="potion">
+  <input type="radio" name="cat" id="finery">
+  <input type="radio" name="cat" id="tools">
+
+  <!-- CATEGORIES -->
+  <div class="categories">
+    <label for="food">🍗 Food</label>
+    <label for="toy">🎾 Toy</label>
+    <label for="potion">💊 Potion</label>
+    <label for="finery">🧴 Finery</label>
+    <label for="tools">🔧 Tools</label>
+  </div>
+
+  <!-- FOOD -->
+  <div class="section food">
+    <div class="section-title">Food</div>
+    <div class="products">
+      <div class="card"><img src="https://placedog.net/200/200"><h4>Ollie Dog Food</h4><div class="price">₱840</div></div>
+      <div class="card"><img src="https://placedog.net/201/200"><h4>Nulo Grain-Free</h4><div class="price">₱700</div></div>
+      <div class="card"><img src="https://placekitten.com/200/200"><h4>Whiskas</h4><div class="price">₱320</div></div>
+      <div class="card"><img src="https://placedog.net/202/200"><h4>Pedigree</h4><div class="price">₱650</div></div>
+    </div>
+  </div>
+
+  <!-- TOY -->
+  <div class="section toy">
+    <div class="section-title">Toy</div>
+    <div class="products">
+      <div class="card"><img src="https://placedog.net/210/200"><h4>Chew Toy</h4><div class="price">₱120</div></div>
+      <div class="card"><img src="https://placekitten.com/210/200"><h4>Ball Toy</h4><div class="price">₱90</div></div>
+    </div>
+  </div>
+
+  <!-- POTION -->
+  <div class="section potion">
+    <div class="section-title">Potion</div>
+    <div class="products">
+      <div class="card"><img src="https://placedog.net/213/200"><h4>Health Potion</h4><div class="price">₱200</div></div>
+      <div class="card"><img src="https://placekitten.com/213/200"><h4>Energy Potion</h4><div class="price">₱220</div></div>
+    </div>
+  </div>
+
+  <!-- FINERY -->
+  <div class="section finery">
+    <div class="section-title">Finery</div>
+    <div class="products">
+      <div class="card"><img src="https://placedog.net/216/200"><h4>Pet Collar</h4><div class="price">₱150</div></div>
+      <div class="card"><img src="https://placekitten.com/216/200"><h4>Ribbon</h4><div class="price">₱80</div></div>
+    </div>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="section tools">
+    <div class="section-title">Tools</div>
+    <div class="products">
+      <div class="card"><img src="https://placedog.net/219/200"><h4>Brush</h4><div class="price">₱100</div></div>
+      <div class="card"><img src="https://placekitten.com/219/200"><h4>Scissors</h4><div class="price">₱180</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="home">🏠</div>
+  <div>📅</div>
+  <div>💬</div>
+  <div>👤</div>
+</div>
+
+</body>
+</html>
